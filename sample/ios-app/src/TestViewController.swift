@@ -5,12 +5,12 @@
 
 import UIKit
 import MultiPlatformLibrary
-import MultiPlatformLibraryResources
 
 class TestViewController: UIViewController {
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var textView: UITextView!
+    @IBOutlet private var stringDescTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,9 @@ class TestViewController: UIViewController {
         let drawable = testing.getDrawable()
         let strings = testing.getStrings()
         
-        imageView.image = UIImage(named: drawable.assetImageName)
+        imageView.image = drawable.toUIImage()
         textView.text = strings.map { $0.localized() }.joined(separator: "\n")
+        
+        stringDescTextView.text = testing.getStringDesc().localized()
     }
 }
