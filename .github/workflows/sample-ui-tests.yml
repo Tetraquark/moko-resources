@@ -17,7 +17,3 @@ jobs:
         with:
           api-level: 29
           script: ./gradlew connectedAndroidTest
-
-      - name: all gradle tasks
-        run: |
-          ./gradlew -q :tasks --all
